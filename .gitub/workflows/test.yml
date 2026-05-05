@@ -1,0 +1,38 @@
+name: Terraform CI/CD
+
+on:
+  workflow_dispatch:
+
+permissions:
+id-token: write   # REQUIRED for OIDC
+contents: read
+
+jobs:
+  terraform:
+  runs-on: ubuntu-latest
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v3
+
+    # 🔐 Step 1: Assume Role 1 (GitHub OIDC Role)
+    - name: Configure AWS Credentials (Role 1)
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        role-to-assume: arn:aws:iam::042360978040:role/gha-role
+        aws-region: us-east-1
+
+    # 📦 Step 2: Terraform Init (uses Role 1 for backend)
+    - name: Terraform Init
+      run: terraform init
+
+    # 🔍 Step 3: Terraform Plan
+    - name: Terraform Plan
+      run: terraform plan
+
+    - name: Terraform Apply
+      run: terraform apply --auto-approve
+
+
