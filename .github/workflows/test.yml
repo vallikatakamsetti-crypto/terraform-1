@@ -4,8 +4,8 @@ on:
   workflow_dispatch:
 
 permissions:
-id-token: write   # REQUIRED for OIDC
-contents: read
+  id-token: write   # REQUIRED for OIDC
+  contents: read
 
 jobs:
   terraform:
