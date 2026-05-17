@@ -16,7 +16,6 @@ jobs:
     uses: vallikatakamsetti-crypto/terraform-reusable/.github/workflows/terraform-reusable.yml@main
     with:
       terraform-command: "plan"
-      role-to-assume: ${{ secrets.IAM_GHA_ROLE }}
       aws-region: us-east-1
     secrets:
       role-to-assume: ${{ secrets.IAM_GHA_ROLE }}
