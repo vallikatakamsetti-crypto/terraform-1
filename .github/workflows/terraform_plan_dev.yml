@@ -8,7 +8,6 @@ on:
   pull_request:
     branches:
       - main
-    secrets:
 
 
 jobs:
@@ -17,4 +16,5 @@ jobs:
     with:
       terraform-command: "plan"
       aws-region: us-east-1
-    secrets: inherit
+      secrets: 
+        role-to-assume: ${{ inputs.IAM_GHA_ROLE }}
