@@ -17,4 +17,4 @@ jobs:
       terraform-command: "plan"
       aws-region: us-east-1
     secrets:
-      role-to-assume: ${{ inputs.IAM_GHA_ROLE }}
+      role-to-assume: ${{ secrets.IAM_GHA_ROLE }}
