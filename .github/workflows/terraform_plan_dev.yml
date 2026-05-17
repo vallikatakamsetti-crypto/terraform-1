@@ -17,5 +17,4 @@ jobs:
     with:
       terraform-command: "plan"
       aws-region: us-east-1
-      secrets:
-        role-to-assume: ${{ secrets.IAM_GHA_ROLE }}
+    secrets: inherit
