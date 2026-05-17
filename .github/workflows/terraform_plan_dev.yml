@@ -9,11 +9,12 @@ on:
     branches:
       - main
 
+
 jobs:
   plan:
     uses: vallikatakamsetti-crypto/terraform-reusable/.github/workflows/terraform-reusable.yml@main
     with:
       terraform-command: "plan"
-      role-to-assume: arn:aws:iam::042360978040:role/gha-role
       aws-region: us-east-1
-    secrets: inherit
+    secrets:
+      role-to-assume: ${{ secrets.IAM_GHA_ROLE }}
