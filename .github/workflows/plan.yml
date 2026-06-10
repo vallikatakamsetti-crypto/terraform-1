@@ -9,10 +9,11 @@ permissions:
   contents: read
 
 jobs:
+
     terraform:
         runs-on: ubuntu-latest
         steps:
-        -   name: Checkout
+        -   name: Checkout details
             uses: actions/checkout@v4
         -   name: setup terraform
             uses: hashicorp/setup-terraform@v3
