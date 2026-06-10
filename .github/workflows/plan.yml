@@ -2,7 +2,7 @@ name: Terraform Plan
 on:
     pull_request:
         branches: 
-        - main
+        - main2
 
 permissions:
   id-token: write   # REQUIRED for OIDC
